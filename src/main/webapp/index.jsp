@@ -14,6 +14,9 @@
     <title></title>
 </head>
 <body>
+    <jsp:include page="templates/inc/header-default.jsp" flush="true"/>
+
+
     ${DOMAIN}<br/>
     ${JS_BASE_URL}<br/>
     ${CSS_BASE_URL}<br/>
@@ -31,5 +34,7 @@
         <br/>
         source: <c:out value="${tweet.source}"></c:out> <br/>
     </c:if>
+    <jsp:include page="templates/inc/footer-default.jsp" flush="true"/>
+    <script></script>
 </body>
 </html>
