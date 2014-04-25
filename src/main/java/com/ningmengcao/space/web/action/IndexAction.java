@@ -27,7 +27,7 @@ public class IndexAction {
         Tweet tweet = tweetService.getTweetById(1);
         logger.debug("tweet = {}", tweet);
         model.addAttribute("tweet", tweet);
-        return AppUtil.PAGE_INDEX;
+        return AppUtil.PAGE_INDEX + ".jsp";
     }
 
 }
