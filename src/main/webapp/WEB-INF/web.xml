@@ -15,6 +15,11 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
+    <!--启动加载-->
+    <listener>
+        <listener-class>com.ningmengcao.space.core.listener.ContextInitListener</listener-class>
+    </listener>
+
     <servlet>
         <servlet-name>springmvc</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
