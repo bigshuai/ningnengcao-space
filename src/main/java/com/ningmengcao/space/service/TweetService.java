@@ -15,13 +15,12 @@ public class TweetService {
     public static Logger logger = LoggerFactory.getLogger(TweetService.class);
 
     public void save(Tweet tweet) {
-        // true 说明会自动
-        SqlSession session = DaoFactory.getSessionFactory().openSession(true);
+        // true 说明会自动, 这里与MySQL表的引擎有关系, 如果是MyISAM, 就不需要, 如果是InnoDB(支持食物), 需要加true
+        SqlSession session = DaoFactory.getSessionFactory().openSession();
         try {
             TweetDao dao = session.getMapper(TweetDao.class);
-            int tweetId = dao.insert(tweet);
-            logger.info("tweetId = {}", tweetId);
-            session.commit();
+            int rows = dao.insert(tweet);
+            logger.info("rows = {}, tweetId = {}", rows, tweet.getTweetId());
         } catch (Exception e) {
             logger.error("tweet = {},e = {}", tweet, e.getStackTrace());
         } finally {
@@ -29,5 +28,36 @@ public class TweetService {
         }
     }
 
+    public Tweet getTweetById(int tweetId) {
+        SqlSession session = DaoFactory.getSessionFactory().openSession();
+        Tweet tweet = null;
+        try {
+            TweetDao dao = session.getMapper(TweetDao.class);
+            tweet = dao.getTweetById(tweetId);
+        } catch (Exception e) {
+            logger.error("tweetId = {},e = {}", tweetId, e.getStackTrace());
+        } finally {
+            session.close();
+        }
+        return tweet;
+    }
 
+    public int update(Tweet tweet) {
+        SqlSession session = DaoFactory.getSessionFactory().openSession();
+        try {
+            TweetDao dao = session.getMapper(TweetDao.class);
+            int rows = dao.updateById(tweet);
+            if (rows == 0) {
+                logger.info("未找到对应的 Tweet, tweetId = {}", tweet.getTweetId());
+                return 0;
+            }
+            logger.info("rows = {}, tweetId = {}", rows, tweet.getTweetId());
+            return rows;
+        } catch (Exception e) {
+            logger.error("tweet = {},e = {}", tweet, e.getStackTrace());
+        } finally {
+            session.close();
+        }
+        return 0;
+    }
 }

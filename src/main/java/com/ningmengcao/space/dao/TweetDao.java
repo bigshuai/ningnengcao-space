@@ -10,4 +10,7 @@ public interface TweetDao {
     public Tweet getTweetById(int tweetId);
 
     public int insert(Tweet tweet);
+
+    public int updateById(Tweet tweet);
+
 }

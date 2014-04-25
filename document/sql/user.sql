@@ -11,7 +11,7 @@
  Target Server Version : 50613
  File Encoding         : utf-8
 
- Date: 04/24/2014 21:20:22 PM
+ Date: 04/25/2014 09:02:31 AM
 */
 
 SET NAMES utf8;
@@ -28,7 +28,7 @@ CREATE TABLE `user_info` (
   `signature` varchar(255) DEFAULT NULL COMMENT '签名',
   `level` tinyint(3) NOT NULL COMMENT '等级',
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Table structure for `user_login`
@@ -41,6 +41,6 @@ CREATE TABLE `user_login` (
   `status` tinyint(1) NOT NULL DEFAULT '0' COMMENT '状态',
   `mobile` varchar(11) DEFAULT NULL COMMENT '手机号码',
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 SET FOREIGN_KEY_CHECKS = 1;

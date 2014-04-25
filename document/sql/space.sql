@@ -11,7 +11,7 @@
  Target Server Version : 50613
  File Encoding         : utf-8
 
- Date: 04/24/2014 14:39:51 PM
+ Date: 04/25/2014 09:02:21 AM
 */
 
 SET NAMES utf8;
@@ -30,6 +30,6 @@ CREATE TABLE `tweet` (
   `create_time` datetime NOT NULL COMMENT '创建时间',
   `source` int(2) NOT NULL COMMENT '来源',
   PRIMARY KEY (`tweet_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 SET FOREIGN_KEY_CHECKS = 1;

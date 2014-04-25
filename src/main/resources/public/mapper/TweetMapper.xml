@@ -7,12 +7,12 @@
 
     <sql id="TweetColumns">
         <![CDATA[
-	      `tweet_id`,
+	      `tweet_id` AS tweetId,
           `content`,
           `images`,
-          `user_id`,
+          `user_id` AS userId,
           `category`,
-          `create_time`,
+          `create_time` AS createTime,
           `source`
         ]]>
     </sql>
@@ -24,7 +24,8 @@
         WHERE tweet_id = #{tweetId}
     </select>
 
-    <insert id="insert" useGeneratedKeys="true" keyProperty="tweetId">
+    <insert id="insert" useGeneratedKeys="true" keyProperty="tweetId"
+            parameterType="com.ningmengcao.space.domain.Tweet">
         INSERT INTO tweet (
           `content`,
           `images`,
@@ -41,6 +42,36 @@
         	#{source}
         )
     </insert>
+
+    <update id="updateById">
+        UPDATE tweet
+        <set>
+            <if test="content != null">
+                `content` = #{content},
+            </if>
+            <if test="images != null">
+                `images` = #{images},
+            </if>
+            <if test="images != null">
+                `images` = #{images},
+            </if>
+            <if test="userId != null">
+                `user_id` = #{userId},
+            </if>
+            <if test="category != null">
+                `category` = #{category},
+            </if>
+            <if test="createTime != null">
+                `create_time` = #{createTime},
+            </if>
+            <if test="source != null">
+                `source` = #{source}
+            </if>
+        </set>
+        WHERE `tweet_id`= #{tweetId}
+    </update>
+
+
 
 
 </mapper>

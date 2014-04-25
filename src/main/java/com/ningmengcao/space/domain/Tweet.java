@@ -7,19 +7,19 @@ import java.util.Date;
  */
 public class Tweet {
 
-    private int tweetId; // 推文主键
+    private Integer tweetId; // 推文主键
     private String content; // 推文内容
     private String images;// 图片名称
-    private int userId;// 创建人主键
-    private int category;// 推文种类
+    private Integer userId;// 创建人主键
+    private Integer category;// 推文种类
     private Date createTime;// 创建时间
-    private int source;// 来源
+    private Integer source;// 来源
 
-    public int getTweetId() {
+    public Integer getTweetId() {
         return tweetId;
     }
 
-    public void setTweetId(int tweetId) {
+    public void setTweetId(Integer tweetId) {
         this.tweetId = tweetId;
     }
 
@@ -39,19 +39,19 @@ public class Tweet {
         this.images = images;
     }
 
-    public int getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
-    public int getCategory() {
+    public Integer getCategory() {
         return category;
     }
 
-    public void setCategory(int category) {
+    public void setCategory(Integer category) {
         this.category = category;
     }
 
@@ -63,11 +63,11 @@ public class Tweet {
         this.createTime = createTime;
     }
 
-    public int getSource() {
+    public Integer getSource() {
         return source;
     }
 
-    public void setSource(int source) {
+    public void setSource(Integer source) {
         this.source = source;
     }
 
