@@ -1,4 +1,4 @@
-package com.ningmengcao.space.base;
+package com.ningmengcao.space.core.db;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;

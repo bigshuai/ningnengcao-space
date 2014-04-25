@@ -1,15 +1,17 @@
 package com.ningmengcao.space.service;
 
-import com.ningmengcao.space.base.DaoFactory;
+import com.ningmengcao.space.core.db.DaoFactory;
 import com.ningmengcao.space.dao.TweetDao;
 import com.ningmengcao.space.domain.Tweet;
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by chenyuan on 4/24/14.
  */
+@Service
 public class TweetService {
 
     public static Logger logger = LoggerFactory.getLogger(TweetService.class);
