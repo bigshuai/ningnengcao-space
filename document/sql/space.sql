@@ -27,7 +27,6 @@ CREATE TABLE `tweet` (
   `images` varchar(255) DEFAULT NULL COMMENT '图片名称',
   `user_id` int(10) NOT NULL COMMENT '创建人主键',
   `category` tinyint(4) NOT NULL COMMENT '推文种类',
-  `tags` varchar(255) DEFAULT NULL COMMENT '标签',
   `create_time` datetime NOT NULL COMMENT '创建时间',
   `source` int(2) NOT NULL COMMENT '来源',
   PRIMARY KEY (`tweet_id`)

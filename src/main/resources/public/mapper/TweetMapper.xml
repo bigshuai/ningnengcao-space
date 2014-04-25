@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.ningmengcao.space.dao.TweetDao">
+
+    <sql id="TweetColumns">
+        <![CDATA[
+	      `tweet_id`,
+          `content`,
+          `images`,
+          `user_id`,
+          `category`,
+          `create_time`,
+          `source`
+        ]]>
+    </sql>
+
+    <select id="getTweetById" resultType="Tweet">
+        SELECT
+        <include refid="TweetColumns"/>
+        FROM tweet
+        WHERE tweet_id = #{tweetId}
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="tweetId">
+        INSERT INTO tweet (
+          `content`,
+          `images`,
+          `user_id`,
+          `category`,
+          `create_time`,
+          `source`
+        ) VALUES (
+        	#{content},
+        	#{images},
+        	#{userId},
+        	#{category},
+        	#{createTime},
+        	#{source}
+        )
+    </insert>
+
+
+</mapper>

@@ -1,12 +1,77 @@
 apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+apply plugin: 'jetty'
 
 sourceCompatibility = 1.5
 version = '1.0'
+
+// Gradle war -Denv=local
+def env = System.getProperty("env")?:"local"
 
 repositories {
     mavenCentral()
 }
 
+sourceSets {
+    main {
+        resources {
+            exclude "src/main/resources"
+            srcDirs = ["src/main/resources/public", "src/main/resources/$env"]
+        }
+    }
+}
+
+project.ext {
+    springVersion = "3.2.3.RELEASE"
+}
+
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
+    // Junit
+    compile group: 'junit', name: 'junit', version: '4.11'
+
+    // SpringMVC
+    compile "org.springframework:spring-tx:$springVersion",
+            "org.springframework:spring-orm:$springVersion",
+            "org.springframework:spring-expression:$springVersion",
+            "org.springframework:spring-beans:$springVersion",
+            "org.springframework:spring-aop:$springVersion",
+            "org.springframework:spring-context:$springVersion",
+            "org.springframework:spring-context-support:$springVersion",
+            "org.springframework:spring-oxm:$springVersion",
+            "org.springframework:spring-web:$springVersion",
+            "org.springframework:spring-webmvc:$springVersion",
+            "org.springframework:spring-jdbc:$springVersion",
+            "org.springframework:spring-aspects:$springVersion",
+            "org.springframework:spring-test:$springVersion",
+            "org.aspectj:aspectjrt:1.6.11"
+
+    // Logback
+    compile 'log4j:log4j:1.2.16'
+    compile 'org.slf4j:slf4j-api:1.7.4'
+    compile 'ch.qos.logback:logback-classic:1.0.11'
+    compile 'ch.qos.logback:logback-core:1.0.11'
+    compile 'ch.qos.logback:logback-access:1.0.11'
+
+    compile "commons-lang:commons-lang:2.6"
+    compile "mysql:mysql-connector-java:5.1.11"
+    compile "commons-dbcp:commons-dbcp:1.2.2"
+    compile 'org.freemarker:freemarker:2.3.20'
+
+    compile "org.mybatis:mybatis:3.2.2"
+    compile "org.mybatis:mybatis-spring:1.2.0"
+
+    // Jackson
+    compile 'com.fasterxml.jackson.core:jackson-core:2.2.2'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.2.2'
+    compile 'com.fasterxml.jackson.core:jackson-annotations:2.2.2'
+
+    // Other
+    compile 'org.jsoup:jsoup:1.7.2'
+}
+
+// Gathering all dependencies libraries JARs in one folder
+task copyToLib(type: Copy) {
+    from configurations.runtime
+    into "src/main/webapp/WEB-INF/lib"
 }
