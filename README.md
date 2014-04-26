@@ -5,7 +5,7 @@ ningmengcao-space
 ---------------
 	
 		前端:
-			Freemarker
+			JSP
 			JQuery
 			Sea.js
 			Bootstrap3
