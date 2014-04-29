@@ -7,7 +7,7 @@
     <properties resource="jdbc.properties"/>
 
     <typeAliases>
-        <package name="com.ningmengcao.space.domain"/>
+        <package name="net.ningmengcao.space.domain"/>
     </typeAliases>
 
     <environments default="production">

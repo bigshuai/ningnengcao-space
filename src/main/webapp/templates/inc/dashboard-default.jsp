@@ -24,7 +24,6 @@
     </div>
     <br>
     <br>
-    <br>
     <div class="sidebar-module">
         <ul class="nav nav-pills nav-stacked dashboard" style="max-width: 300px;">
             <li><a href="#">Profile <span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>

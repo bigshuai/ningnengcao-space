@@ -30,11 +30,18 @@
                             <h3 class="panel-title">动态列表</h3>
                         </div>
                         <ul class="list-group">
-                            <li class="list-group-item">Cras justo odio</li>
-                            <li class="list-group-item">Dapibus ac facilisis in</li>
-                            <li class="list-group-item">Morbi leo risus</li>
-                            <li class="list-group-item">Porta ac consectetur ac</li>
-                            <li class="list-group-item">Vestibulum at eros</li>
+                            <c:if test="${split != null && split.list != null}">
+                                <c:forEach items="${split.list}" var="tweet">
+                                    <li class="list-group-item">
+                                        <c:out value="${tweet.tweetId}"/><br/>
+                                        <c:out value="${tweet.content}"/><br/>
+                                        <c:out value="${tweet.images}"/><br/>
+                                        <c:out value="${tweet.category}"/><br/>
+                                        <fmt:formatDate value="${tweet.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/><br/>
+                                        <c:out value="${tweet.source}"/><br/>
+                                    </li>
+                                </c:forEach>
+                            </c:if>
                         </ul>
                     </div>
                 </div>
@@ -43,7 +50,7 @@
     </div> <!-- /container -->
 
     <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="publish-tweet-box" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -59,7 +66,7 @@
                         <li><a href="#"><span class="glyphicon glyphicon-expand"></span></a></li>
                         <li><a href="#"><span class="glyphicon glyphicon-globe"></span></a></li>
                     </ul>
-                    <button type="button" class="btn btn-primary">发布</button>
+                    <button type="button" name="add" class="btn btn-primary">发布</button>
                 </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->

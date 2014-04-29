@@ -17,7 +17,7 @@
 
     <!--启动加载-->
     <listener>
-        <listener-class>com.ningmengcao.space.core.listener.ContextInitListener</listener-class>
+        <listener-class>net.ningmengcao.space.core.listener.ContextInitListener</listener-class>
     </listener>
 
     <servlet>

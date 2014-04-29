@@ -3,7 +3,7 @@
         PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
         "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 
-<mapper namespace="com.ningmengcao.space.dao.TweetDao">
+<mapper namespace="net.ningmengcao.space.dao.TweetDao">
 
     <sql id="TweetColumns">
         <![CDATA[
@@ -24,8 +24,22 @@
         WHERE tweet_id = #{tweetId}
     </select>
 
+    <select id="query" resultType="net.ningmengcao.space.domain.Tweet">
+        SELECT
+        <include refid="TweetColumns"/>
+        FROM tweet
+        ORDER BY `create_time` DESC
+        LIMIT #{fromIndex}, #{maxLength}
+    </select>
+
+    <select id="queryCount" resultType="int">
+        SELECT
+        COUNT(0)
+        FROM tweet
+    </select>
+
     <insert id="insert" useGeneratedKeys="true" keyProperty="tweetId"
-            parameterType="com.ningmengcao.space.domain.Tweet">
+            parameterType="net.ningmengcao.space.domain.Tweet">
         INSERT INTO tweet (
           `content`,
           `images`,
