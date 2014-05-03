@@ -10,15 +10,14 @@ import java.util.List;
  */
 public interface TweetDao {
 
-    public Tweet getTweetById(int tweetId);
+    Tweet getTweetById(int tweetId);
 
-    public int insert(Tweet tweet);
+    int insert(Tweet tweet);
 
-    public int updateById(Tweet tweet);
+    int updateById(Tweet tweet);
 
-    public List<Tweet> query(@Param("fromIndex") int fromIndex, @Param("maxLength") int maxLength);
-    //public List<Tweet> query(int fromIndex, int maxLength);
+    List<Tweet> query(@Param("fromIndex") int fromIndex, @Param("maxLength") int maxLength);
 
-    public int queryCount();
+    int queryCount();
 
 }

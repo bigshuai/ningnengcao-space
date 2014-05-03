@@ -5,6 +5,15 @@
 
 <mapper namespace="net.ningmengcao.space.dao.TweetDao">
 
+    <resultMap id="BaseResultMap" type="net.ningmengcao.space.domain.Tweet" >
+        <id column="TWEET_ID" property="tweetId" jdbcType="VARCHAR" />
+        <result column="CONTENT" property="content" jdbcType="VARCHAR" />
+        <result column="IMAGES" property="images" jdbcType="VARCHAR" />
+        <result column="USER_ID" property="userId" jdbcType="VARCHAR" />
+        <result column="CATEGORY" property="category" jdbcType="VARCHAR" />
+        <result column="SOURCE" property="source" jdbcType="VARCHAR" />
+    </resultMap>
+
     <sql id="TweetColumns">
         <![CDATA[
 	      `tweet_id` AS tweetId,
@@ -17,7 +26,7 @@
         ]]>
     </sql>
 
-    <select id="getTweetById" resultType="Tweet">
+    <select id="getTweetById" resultType="net.ningmengcao.space.domain.Tweet">
         SELECT
         <include refid="TweetColumns"/>
         FROM tweet

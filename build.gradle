@@ -52,6 +52,7 @@ dependencies {
             "org.springframework:spring-jdbc:$springVersion",
             "org.springframework:spring-aspects:$springVersion",
             "org.springframework:spring-test:$springVersion",
+            // 查询数据库时
             "org.aspectj:aspectjrt:1.6.11"
 
     // Logback
@@ -73,6 +74,10 @@ dependencies {
     compile 'com.fasterxml.jackson.core:jackson-core:2.2.2'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.2.2'
     compile 'com.fasterxml.jackson.core:jackson-annotations:2.2.2'
+
+    // Jackson Other
+    compile 'org.codehaus.jackson:jackson-core-asl:1.9.13'
+    compile 'org.codehaus.jackson:jackson-mapper-asl:1.9.13'
 
     // Other
     compile 'org.jsoup:jsoup:1.7.2'
