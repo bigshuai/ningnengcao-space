@@ -6,18 +6,26 @@ import net.ningmengcao.space.domain.Tweet;
 import net.ningmengcao.space.domain.TweetSource;
 import junit.framework.TestCase;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.Date;
 
 /**
  * Created by chenyuan on 4/24/14.
  */
-public class TweetServiceTest extends TestCase {
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = {"classpath:spring.xml", "classpath:spring-mybatis.xml"})
+public class TweetServiceTest{
 
     private Logger logger = LoggerFactory.getLogger(TweetServiceTest.class);
-    TweetService tweetService = new TweetService();
+
+    @Autowired
+    private TweetService tweetService;
 
     @Test
     public void testSave(){
