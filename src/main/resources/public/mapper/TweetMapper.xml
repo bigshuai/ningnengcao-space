@@ -26,14 +26,14 @@
         ]]>
     </sql>
 
-    <select id="getTweetById" resultType="net.ningmengcao.space.domain.Tweet">
+    <select id="getTweetById" resultType="Tweet">
         SELECT
         <include refid="TweetColumns"/>
         FROM tweet
         WHERE tweet_id = #{tweetId}
     </select>
 
-    <select id="query" resultType="net.ningmengcao.space.domain.Tweet">
+    <select id="query" resultType="Tweet">
         SELECT
         <include refid="TweetColumns"/>
         FROM tweet
