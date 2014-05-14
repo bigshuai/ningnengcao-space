@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class IndexAction {
 
 
-    Logger logger = LoggerFactory.getLogger(IndexAction.class);
+    private Logger logger = LoggerFactory.getLogger(IndexAction.class);
 
     @Autowired
     private TweetService tweetService;

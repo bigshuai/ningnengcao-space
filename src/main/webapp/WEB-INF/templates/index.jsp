@@ -14,14 +14,14 @@
     <title></title>
     <meta name="description" content="">
     <meta name="author" content="">
-    <jsp:include page="/templates/inc/header-default.jsp" flush="true"/>
+    <jsp:include page="/WEB-INF/templates/inc/header-default.jsp" flush="true"/>
 </head>
 <body>
-    <jsp:include page="/templates/inc/navigation-default.jsp" flush="true"/>
+    <jsp:include page="/WEB-INF/templates/inc/navigation-default.jsp" flush="true"/>
     <div class="container wrapper">
         <div class="row">
             <%--dashboard--%>
-            <jsp:include page="/templates/inc/dashboard-default.jsp" flush="true"/>
+            <jsp:include page="/WEB-INF/templates/inc/dashboard-default.jsp" flush="true"/>
             <%-- ******** 正文 ********--%>
             <div class="col-sm-8">
                 <div class="row">
@@ -72,7 +72,7 @@
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 
-    <jsp:include page="/templates/inc/footer-default.jsp" flush="true"/>
+    <jsp:include page="/WEB-INF/templates/inc/footer-default.jsp" flush="true"/>
     <script>
         seajs.use("/js/app");
     </script>
